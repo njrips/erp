@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><%- title %></title>
+<script type="text/javascript" src="/extjs/ext-all.js"></script>
+<script type="text/javascript" src="/extjs/build/ext-theme-classic.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+        var socket = io();
+</script>
+<% var menu_data= "Ext.Loader.setConfig({"
+        +" enabled: true,"
+        +"  disableCaching: true"
+        +"});"
+        +"Ext.require(["
+        +"'Ext.panel.Panel',"
+        +"'Ext.window.MessageBox',"
+        +"'Ext.chart.*'"
+        +"]);"
+        +"Ext.onReady(function() {"
+        +" var onClick = function(menuItem) {"
+        +" Ext.Msg.show({"
+        +"  title: 'Click!',"
+        +"   msg: 'You clicked item',"
+        +"   icon: Ext.Msg.INFO,"
+        +"   buttons: Ext.Msg.OK"
+        +"   });"
+        +" };"
+        +"  Ext.create('Ext.container.Viewport', {"
+        +"  layout: 'border',"
+        +"  items: ["
+        +"  header_panel, navigation_panel, tab_panel ]"
+        +"   });"
+        +"})";
+  %>
+<script type="text/javascript"><%- menu_data%></script>
+<link rel="stylesheet" href="/extjs/build/resources/ext-theme-classic-all.css">
+<%- extjs_app_scripts %>
+</head>
+</html>
